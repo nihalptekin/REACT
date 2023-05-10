@@ -3,6 +3,7 @@ import {Button, Container, Form, Nav, NavDropdown, Navbar} from "react-bootstrap
 import resim from "../img/logo 2.png";
 
 
+
 const MyNavbar = () => {
     //! nevbar scrolling
   return (

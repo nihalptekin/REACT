@@ -20,14 +20,16 @@
 import Clock from '../clock/Clock'
 import resim from '../img/ucak.jpeg'
 
+
 //! External css
 import "./Msg.css"
+
 
 const Msg = () => {
 //! internal css
 const styleA={
   color:"green",
-  fontFamil:"Tahoma",
+  fontFamily:"Tahoma",
   border:"1px solid red"
 }
 
@@ -35,15 +37,14 @@ const styleA={
   return (
     <div>
     
-    <h2 sytle={styleA}> burasi MSG alani</h2>
+    <h2 style={styleA}> burasi MSG alani</h2>
     <Clock/>
 
     <p style={{color:"red", fontSize:"30px"}}>Hosgeldin REACT</p>
     
     <img className='msg-img' src="https://cdn.pixabay.com/photo/2018/01/18/20/56/auto-3091234__480.jpg" alt=''/> 
     <img className="msg-img" src={resim} alt=''/>
-
-    
+ 
     </div>
   )
 }

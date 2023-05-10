@@ -8,6 +8,7 @@ const Person = (props) => {
     //! destricture
     const{name, img, tel}=props
 
+    
   return (
     <div>
     <h2>{name}</h2>

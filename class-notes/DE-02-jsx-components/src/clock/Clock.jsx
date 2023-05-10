@@ -1,6 +1,8 @@
-
+//rafce
 
 const Clock = () => {
+//! JAVASCRIPT
+
   return (
     <div>
         <h2>
