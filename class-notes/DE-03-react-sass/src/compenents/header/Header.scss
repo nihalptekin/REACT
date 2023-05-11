@@ -1,0 +1,14 @@
+@import "../../scss/variable";
+
+//! sadece variable tarzi scssler(dolar ile knedi stilimi topladigim yer) nereden cagirilacaklarsa oraya import edilmeli
+
+header{
+    padding:3rem;
+    background-color: $lightGreen;
+
+    h1{
+text-align: center;
+color: darkblue;
+    }
+}
+
