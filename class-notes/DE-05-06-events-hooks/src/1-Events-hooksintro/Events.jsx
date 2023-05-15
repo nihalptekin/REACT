@@ -12,6 +12,13 @@ const arttir=()=>{
   console.log(count);
   document.querySelector("span").textContent=count
 }
+
+const azalt=()=>{
+  count-=1
+  console.log(count);
+  document.querySelector("span").textContent=count
+}
+
 const butonBaslik=(a)=>{
 console.log(a);
 document.querySelector(".btn-info").textContent=a
@@ -24,8 +31,8 @@ document.querySelector(".btn-info").textContent=a
    <h2> COUNT: <span>{count}</span> </h2>
 
    <button className='btn btn-primary' onClick={arttir}>ARTTIR</button>
+   <button className='btn btn-primary' onClick={azalt}>AZALT</button>
    <button className='btn btn-info' onClick={()=>butonBaslik(new Date().getFullYear())}>TEMIZLE</button>
-
    <button className='btn btn-danger' onClick={()=>alert("buton tiklandi")}>TIKLANDI</button>
 
     </div>
