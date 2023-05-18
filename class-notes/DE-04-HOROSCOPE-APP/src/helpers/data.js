@@ -1,8 +1,6 @@
 export const data = [
     {
       id: 1,
-      title: "Aquarius",
-      date:"(January 20 - February 18)",
       desc:
         "Despite the 'aqua' in its name, Aquarius is actually the last air sign of the zodiac. Innovative, progressive, and shamelessly revolutionary, Aquarius is represented by the water bearer, the mystical healer who bestows water, or life, upon the land. Accordingly, Aquarius is the most humanitarian astrological sign. At the end of the day, Aquarius is dedicated to making the world a better place.",
       image: "https://drscdn.500px.org/photo/1049427126/q%3D80_m%3D2000/v2?sig=98f779475524b162f09c3859e9a7f60b676c244342ad0888c0cc1270482c941a",
