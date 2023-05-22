@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import OrnekUseEffect from "./components/OrnekUseEffect";
 import Clock from "./components/Clock";
+import People from "./components/useEffect-fetch-axios/People";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className="container text-center mt-4" >
      {/* <LifeCycleMethods/> */}
-     <button className="btn btn-danger" onClick={()=>setGoster(!goster)}>GOSTER</button>
+     {/* <button className="btn btn-danger" onClick={()=>setGoster(!goster)}>GOSTER</button> */}
 
 
      {/* {goster ? <OrnekUseEffect/> : ""} */}
@@ -22,7 +23,9 @@ function App() {
       {/* && iki parametrede doğruyken kullanılır, || soldaki doğruysa yada
       sağdaki doğruysa, hangisi true ise onu al */}
 
-      {goster && <Clock/>} 
+      {/* {goster && <Clock/>}  */}
+
+      <People/>
 
     </div>
   );

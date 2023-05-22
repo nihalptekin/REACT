@@ -1,12 +1,17 @@
 
+import axios from "axios";
 import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
-const BilgiList = () => {
+
+const BilgiList = ({bilgiler, getBilgiler}) => {
   const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
 
+const deleteBilgi=async(id)=>{
+  await axios.delete(`${url}${id}/`)
+  getBilgiler()
 
-
+}
 
   return (
     <div className="container mt-4">
@@ -22,21 +27,21 @@ const BilgiList = () => {
           </tr>
         </thead>
         <tbody>
-          {[].map((eleman) => {
+          {bilgiler.map(({id, title, description}) => {
           
             return (
-              <tr >
-                <th>{}</th>
-                <td>{}</td>
-                <td>{} </td>
-                <td className="text-center text-nowrap">
+              <tr key={id}>
+                <th>{id}</th>
+                <td>{title}</td>
+                <td>{description} </td>
+                <td className="text-center">
                
-             
-
+    
                   <AiFillDelete
                     type="button"
                     size={22}
                     className="text-danger cursor-pointer"
+                    onClick={()=>deleteBilgi(id)}
                     //!burada id göndermek zorunda değiliz title da gönderilebilir
 
                    
