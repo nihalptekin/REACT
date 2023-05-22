@@ -12,7 +12,7 @@ const CourseCard = ({data}) => {
     <div>
 <Container>
 
-<Row className="g-3 text-center">
+<Row className="g-3 text-center mt-4">
 {data.map(({img, name, text, id})=>{
 
     //! arrow(map) süslü ile kullanildiginda return ister. 

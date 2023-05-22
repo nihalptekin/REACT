@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 const PlayerCard = ({ img, name, statistics }) => {
 
-  
+
   const [showImage, setShowImage] = useState(true);
   //    const {img,name,statistics} = props
   //   console.log(props);
