@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AddBilgi from "../components/AddBilgi";
 import BilgiList from "../components/BilgiList";
+
+
 const Home = () => {
   const [bilgiler, setBilgiler] = useState([]);
 
