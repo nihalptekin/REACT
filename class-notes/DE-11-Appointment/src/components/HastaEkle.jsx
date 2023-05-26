@@ -12,7 +12,7 @@ setHastalar([...hastalar, {id:hastalar.length+1,
 text: isim, 
 day: tarih, 
 bittiMi: false,
-doktorum: "DOKTOR ADI GELECEK"}])
+doktorum: doktorlar[0].doktor,}])
 setIsim("")  //inputta veri girdikten sorna inputu temizler. Bunun icin asagidaki inputlara value degeri yazdik. 
 setTarih("")
  }
