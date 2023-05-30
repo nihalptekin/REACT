@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 //!useEffect teki People.jsx componenti
 
 const Teacher = () => {
-
+  const navigate=useNavigate()
   const [insanlar, setInsanlar] = useState([]);
 
   useEffect(() => {
@@ -25,7 +26,8 @@ const Teacher = () => {
               <img
                 src={`https://avatars.dicebear.com/api/avataaars/${id}.svg`}
                 alt=""
-           
+           onClick={()=>navigate(`/teacher/${id}`)}
+          //  navbarda genelde link to nav.link to kullanilir. ama burada dolar süslü ile id yazamayiz onu talgilayamaz. 
               />
               <h1>{name}</h1>
               <h5>{phone}</h5>
