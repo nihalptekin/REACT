@@ -6,9 +6,17 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
+  const [name,setName]=useState(); 
+const[pass, setPass]=useState();
+
   const navigate=useNavigate()
   const handleSubmit=(e)=>{
 e.preventDefault()
+//!fake backend kaydi yapiyoruz
+localStorage.setItem("username",(name))
+localStorage.setItem("password",(pass))
+
+
 navigate("/home")
   }
 
@@ -25,7 +33,7 @@ navigate("/home")
 
 <StyledInput type="text"
   placeholder="username"
-  required
+  required  onChange={(e)=>setName(e.target.value)}
 
   
 />
@@ -33,7 +41,7 @@ navigate("/home")
 <StyledInput type="password"
   placeholder="password"
   required
-
+  onChange={(e)=>setPass(e.target.value)}
 />
 
 <StyledButton type="submit">Login</StyledButton>
