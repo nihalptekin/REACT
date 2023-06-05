@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
+import Home from './components/Home'
+import data from './data'
 
-
-
+export const OgrenciContext=createContext()
 
 const App = () => {
+const [ogrenci, setOgrenci]=useState(data)
 
+const changeRenk=(id, newRenk)=>{
+  //!  inputtaki renkler degisecek
+  setOgrenci(
+    ogrenci.map((a)=> a.id === id ? {...a, color:newRenk} :a
+    )
+  )
+}
 
   return (
 
-  <div>app</div>
+  <OgrenciContext.Provider value={{ogrenci, changeRenk}}>
+    <Home/>
+  </OgrenciContext.Provider>
+
+
   )
 }
 
