@@ -1,0 +1,41 @@
+@media screen and (min-width: 0px) {
+  .links {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .links {
+    flex-direction: row;
+  }
+}
+.navbar {
+  background-color: rgba(183, 103, 42, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 4;
+}
+.navbar .links {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: flex-end;
+  gap: 2%;
+}
+.navbar .links a {
+  color: #f9efd4;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem;
+}
+.navbar .links a:hover {
+  background-color: #f9efd4;
+  color: rgba(183, 103, 42, 0.9);
+  border-radius: 5px;
+}
+.navbar img {
+  width: 100px;
+  height: 100px;
+}/*# sourceMappingURL=Navbar.css.map */

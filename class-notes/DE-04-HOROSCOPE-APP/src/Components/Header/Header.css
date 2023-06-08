@@ -1,0 +1,47 @@
+@media screen and (min-width: 0px) {
+  .links {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .links {
+    flex-direction: row;
+  }
+}
+.header {
+  text-align: center;
+  margin: 1rem;
+  padding: 0.5rem;
+  margin-top: 10rem;
+}
+.header .text-shadow {
+  color: rgba(183, 103, 42, 0.9);
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: underline;
+  animation: flicker 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.5;
+    text-shadow: 2px 2px 10px;
+    color: rgba(183, 103, 42, 0.9);
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow: 2px 2px 10px;
+    color: rgba(183, 103, 42, 0.9);
+  }
+}
+@media screen and (min-width: 0px) {
+  .header {
+    margin-top: 15rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .header {
+    margin-top: 10rem;
+  }
+}/*# sourceMappingURL=Header.css.map */

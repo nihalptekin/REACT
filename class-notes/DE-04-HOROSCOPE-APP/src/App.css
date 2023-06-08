@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 0px) {
+  .links {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .links {
+    flex-direction: row;
+  }
+}
+body {
+  font-family: "Concert One", cursive;
+  background-color: #f9efd4;
+}
+
+p {
+  font-family: "Noto Sans", sans-serif;
+}/*# sourceMappingURL=App.css.map */

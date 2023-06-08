@@ -1,0 +1,69 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+.card-container .cards {
+  width: 500px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.card-container .cards:hover .card-over {
+  transform: translateX(0%);
+}
+.card-container .cards:hover img {
+  opacity: 0.5;
+}
+.card-container .cards .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(183, 103, 42, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  z-index: 2;
+}
+.card-container .cards .date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgba(183, 103, 42, 0.9);
+  font-size: 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  z-index: 2;
+}
+.card-container .cards .image {
+  width: 500px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.card-container .cards .card-over {
+  width: 500px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f9efd4;
+  padding: 1rem;
+  border-radius: 10px;
+  transform: translateY(100%);
+  transition: transform 0.7s ease-in-out;
+  z-index: 3;
+  text-align: justify;
+  font-size: 1.5rem;
+  max-height: 75%;
+  overflow: auto;
+}
+.card-container .cards .card-over::-webkit-scrollbar {
+  display: none;
+}/*# sourceMappingURL=Main.css.map */

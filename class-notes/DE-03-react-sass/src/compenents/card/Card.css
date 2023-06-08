@@ -1,0 +1,29 @@
+/* Color Theme Swatches in Hex */
+.konteynir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.konteynir .kart {
+  width: 30%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.konteynir .kart img {
+  border-radius: 80px;
+  width: 50%;
+  margin-top: 10px;
+}
+.konteynir .kart h1 {
+  color: #FA7F08;
+}
+.konteynir .kart h2 {
+  color: #22BABB;
+}
+.konteynir .kart p {
+  color: #F24405;
+}/*# sourceMappingURL=Card.css.map */
