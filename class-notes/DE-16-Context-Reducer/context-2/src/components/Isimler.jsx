@@ -2,6 +2,8 @@
 import { useContext } from "react";
 import AnaUser from "./AnaUser";
 import { KullaniciContext } from "../App";
+import { useState } from "react";
+import { useEffect } from "react";
 const Isimler = () => {
 const{kullanici}=useContext(KullaniciContext)
   
@@ -18,3 +20,5 @@ const{kullanici}=useContext(KullaniciContext)
 }
 
 export default Isimler
+
+

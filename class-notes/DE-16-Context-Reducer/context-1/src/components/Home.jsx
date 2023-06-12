@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <h1 style={{textAlign:"center", color:"red"}}>OKUL YÖNETIMI</h1>
-      <OgrenciList/>
+      <OgrenciList />
     </div>
   )
 }
