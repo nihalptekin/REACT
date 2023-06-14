@@ -4,7 +4,7 @@ import moment from "moment";
 const Clock = () => {
   const [zaman, setZaman] = useState(moment());
   useEffect(() => {
-   const time=  setInterval(() => {
+   const time =  setInterval(() => {
       setZaman(moment());
     console.log("merhaba");
     }, 1000);

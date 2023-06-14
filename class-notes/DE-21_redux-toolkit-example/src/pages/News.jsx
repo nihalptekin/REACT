@@ -10,15 +10,24 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData, clearList } from '../features/haberSlice';
 
+
 const News = () => {
+const dispatch=useDispatch();
+const {haberler, loading}=useSelector((state)=>state.haberSlice)
 
+console.log(haberler);
+useEffect(()=>{
+  dispatch(getData())
+}, [dispatch])
 
-
+const listeyiSil = () => {
+  dispatch(clearList());
+};
  
   return (
     <>
       {/* loading değikeni buraya true gelirse salyangoz resmini bas yoksa....altta yazan diziyi card lara bastır */}
-      {[] ? (
+      {loading ? (
         <Box
           display="flex"
           alignItems="center"
@@ -35,24 +44,24 @@ const News = () => {
           justifyContent="space-evenly"
           flexWrap="wrap"
         >
-          {[].map((item, index) => (
+          {haberler.map((item, index) => (
             <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
               <CardMedia
                 component="img"
                 height="250"
-                image={item?.urlToImage}
+                image={item.urlToImage}
                 alt="img"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {item?.title}
+                  {item.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {item?.content}
+                  {item.content}
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" >
+                <Button size="small" onClick={listeyiSil}>
                   Clear
                 </Button>
                 <Button size="small" href={item?.url} target="_blank">

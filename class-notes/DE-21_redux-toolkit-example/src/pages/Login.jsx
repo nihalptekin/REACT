@@ -7,20 +7,29 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {useDispatch} from "react-redux"
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux"
 import {olusturKullanici} from "../features/yetkiSlice"
 
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+// const email = useSelector((state)=>state.yetkiSlice.email)
+// const password = useSelector((state)=>state.yetkiSlice.password)
 
+// const yazarsak hata verir. Obje oldugu icin. diger kullandigimiz diziydi o yüzden sorun yasamamistik.
+let {email, password} = useSelector((state)=>state.yetkiSlice)
+const navigate=useNavigate()
 
-  
-  
+const dispatch=useDispatch()
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(olusturKullanici({email, password}))
+navigate("/")
+
+
   
   };
 
@@ -52,8 +61,8 @@ export default function Login() {
             name="email"
             autoComplete="email"
             autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            // value={email}
+          onChange={(e)=>email=e.target.value }
           />
           <TextField
             margin="normal"
@@ -64,8 +73,8 @@ export default function Login() {
             type="password"
             id="password"
             autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
           />
 
           <Button
