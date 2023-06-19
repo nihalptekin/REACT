@@ -5,14 +5,14 @@ const authSlice = createSlice({
 
   initialState: {
     currentUser: null,
-    loading: false,  //const[loading, setLoading]=useState(false) 
+    loading: false,
     error: false,
     isAdmin: false,
     token: null,
   },
   reducers: {
     fetchStart: state => {
-      state.loading = true;  //setLoading(true)
+      state.loading = true;
       state.error = false;
     },
     loginSuccess: (state, { payload }) => {
