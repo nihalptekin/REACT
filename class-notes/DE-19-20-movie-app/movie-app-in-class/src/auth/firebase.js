@@ -15,12 +15,12 @@ import { getAuth } from "firebase/auth";
 //   appId: process.env.REACT_APP_appId,
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyDI3QwyaJ9BpR2a-4C-M2RGhz8XrOjZVlQ",
-  authDomain: "movie-app-356d7.firebaseapp.com",
-  projectId: "movie-app-356d7",
-  storageBucket: "movie-app-356d7.appspot.com",
-  messagingSenderId: "889155370444",
-  appId: "1:889155370444:web:0c2977f29256b40117f169",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
