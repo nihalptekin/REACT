@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { Button, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import FirmCard from "../components/FirmCard";
-import FirmModal from "../components/FirmModul";
+import FirmModal from "../components/modals/FirmModul";
 
 const Firms = () => {
   // const dispatch = useDispatch();

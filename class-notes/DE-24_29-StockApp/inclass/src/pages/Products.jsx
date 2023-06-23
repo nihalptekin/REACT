@@ -3,13 +3,14 @@ import useStockCall from "../hooks/useStockCall";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import ProductModal from "../components/ProductModal";
-import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
-
+import ProductModal from "../components/modals/ProductModal";
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { btnStyle } from "../styles/globalStyle";
 
 const Products = () => {
-  const { getStockData } = useStockCall();
+  const { getStockData, deleteStockData, getProCatBrand } = useStockCall();
   const { products } = useSelector(state => state.stock);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -29,55 +30,86 @@ const Products = () => {
   });
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
     {
-      field: 'firstName',
-      headerName: 'First name',
-      width: 150,
-      editable: true,
+      field: "id",
+      headerName: "#",
+      minWidth: 40,
+      maxWidth: 70,
+      headerAlign: "center",
+      align: "center",
+      flex: 1,
     },
     {
-      field: 'lastName',
-      headerName: 'Last name',
-      width: 150,
-      editable: true,
+      field: "category",
+      headerName: "Category",
+      minWidth: 150,
+      headerAlign: "center",
+      align: "center",
+      flex:3,
     },
     {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
-      width: 110,
-      editable: true,
+      field: "brand",
+      headerName: "Brand",
+      minWidth: 150,
+      headerAlign: "center",
+      align: "center",
+      flex:2,
     },
     {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'This column has a value getter and is not sortable.',
+      field: "name",
+      headerName: "Name",
+      minWidth: 110,
+      headerAlign: "center",
+      align: "center",
+      flex:2,
+    },
+    {
+      field: "stock",
+      headerName: "Stock",
+      minWidth: 110,
+      headerAlign: "center",
+      align: "center",
+      flex: 0.8,
+    },
+    {
+      field: "actions",
+      headerName: "Actions",
+      description: "This column has a value getter and is not sortable.",
+      headerAlign: "center",
+      align: "center",
       sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+      minWidth: 50,
+      flex:1,
+      renderCell: params => (
+        <>
+          {/* {console.log(params)} */}
+          <DeleteIcon
+            sx={btnStyle}
+            onClick={() => deleteStockData("products", params.id)}
+          />
+        </>
+      ),
     },
   ];
-  
-  const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  ];
-  
 
+  // const rows = [
+  //   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
+  //   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
+  //   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
+  //   { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
+  //   { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
+  //   { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
+  //   { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
+  //   { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
+  //   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+  // ];
 
   useEffect(() => {
-    getStockData("products");
-    getStockData("categories");
-    getStockData("brands")
+    // getStockData("products");
+    // getStockData("categories");
+    // getStockData("brands");
+    //! Promise.all()
+    getProCatBrand();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -95,9 +127,10 @@ const Products = () => {
         info={info}
         setInfo={setInfo}
       />
-       <Box sx={{ height: 400, width: '100%' }}>
+      <Box sx={{ width: "100%", marginTop: "1rem" }}>
         <DataGrid
-          rows={rows}
+          autoHeight
+          rows={products}
           columns={columns}
           initialState={{
             pagination: {
@@ -106,20 +139,15 @@ const Products = () => {
               },
             },
           }}
-          pageSizeOptions={[5]}
-          checkboxSelection
+          pageSizeOptions={[5, 10, 25, 50]}
+          sx={{
+            boxShadow: 4,
+          }}
           disableRowSelectionOnClick
         />
       </Box>
-      
     </div>
   );
 };
 
 export default Products;
-
-
-
-
-
-

@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import { useState } from "react";
-import useStockCall from "../hooks/useStockCall";
+import useStockCall from "../../hooks/useStockCall";
 
 const style = {
   position: "absolute",
@@ -19,7 +19,7 @@ const style = {
   p: 4,
 };
 
-export default function FirmModal({ open, handleClose, info, setInfo }) {
+export default function BrandsModal({ open, handleClose, info, setInfo }) {
   //   const [open, setOpen] = React.useState(false);
   //   const handleOpen = () => setOpen(true);
   //   const handleClose = () => setOpen(false);
@@ -33,19 +33,19 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
   //! statelerimizi lifting state up yaparak bir üst componente taşıdık oradan gerekli olan yerlere dağıtım yapabilelim. Bizim örneğimizde FirmModal componenti hem yeni firma eklemek için hemde var olan firmayı update edebilmek için kullanılıyor. Bu nedenle modalı açabilmek ve update işleminde içini doldurabilmek için Firms componentine statelerimizi taşımış olduk oradan da FirmCard componentine props yoluyla göndermiş olduk.
   const { postStockData, putStockData } = useStockCall();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     // console.log(e.target)
     // console.log(e.target.name)
     // console.log(e.target.value)
     setInfo({ ...info, [e.target.name]: e.target.value }); //! inputların name attributelarındaki isimler ile info statetimin içindeki keyler aynı olduğu için bu şekilde tek bir fonksiyonla inputdaki verilerimi state e aktarabildim.
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (info.id) {
-      putStockData("firms", info); //! update işleminde info dolu geldiği için içerisinde id bilgiside yer alıyor. Biz bu id üzerinden sorgulama yaparak id varsa yapacağın işlem put işlemi id yoksa yapacağın işlem post işlemi diye belirtmiş olduk.
+      putStockData("brands", info); //! update işleminde info dolu geldiği için içerisinde id bilgiside yer alıyor. Biz bu id üzerinden sorgulama yaparak id varsa yapacağın işlem put işlemi id yoksa yapacağın işlem post işlemi diye belirtmiş olduk.
     } else {
-      postStockData("firms", info);
+      postStockData("brands", info);
     }
 
     // setInfo({
@@ -71,12 +71,14 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
           // });
         }}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description">
+        aria-describedby="modal-modal-description"
+      >
         <Box sx={style}>
           <Box
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             component={"form"}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+          >
             <TextField
               label="Firm Name"
               name="name"
@@ -84,26 +86,6 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               type="text"
               variant="outlined"
               value={info.name}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              label="Address"
-              name="address"
-              id="address"
-              type="text"
-              variant="outlined"
-              value={info.address}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              label="Phone"
-              name="phone"
-              id="phone"
-              type="tel"
-              variant="outlined"
-              value={info.phone}
               onChange={handleChange}
               required
             />
@@ -118,7 +100,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               required
             />
             <Button variant="contained" type="submit">
-              {info.id ? "Update Firm" : "Submit Firm"}
+              {info.id ? "Update Brand" : "Submit Brand"}
             </Button>
           </Box>
         </Box>

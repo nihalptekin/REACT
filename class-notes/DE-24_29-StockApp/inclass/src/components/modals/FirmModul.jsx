@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import { useState } from "react";
-import useStockCall from "../hooks/useStockCall";
+import useStockCall from "../../hooks/useStockCall";
 
 const style = {
   position: "absolute",
@@ -19,7 +19,7 @@ const style = {
   p: 4,
 };
 
-export default function BrandsModal({ open, handleClose, info, setInfo }) {
+export default function FirmModal({ open, handleClose, info, setInfo }) {
   //   const [open, setOpen] = React.useState(false);
   //   const handleOpen = () => setOpen(true);
   //   const handleClose = () => setOpen(false);
@@ -43,9 +43,9 @@ export default function BrandsModal({ open, handleClose, info, setInfo }) {
     e.preventDefault();
 
     if (info.id) {
-      putStockData("brands", info); //! update işleminde info dolu geldiği için içerisinde id bilgiside yer alıyor. Biz bu id üzerinden sorgulama yaparak id varsa yapacağın işlem put işlemi id yoksa yapacağın işlem post işlemi diye belirtmiş olduk.
+      putStockData("firms", info); //! update işleminde info dolu geldiği için içerisinde id bilgiside yer alıyor. Biz bu id üzerinden sorgulama yaparak id varsa yapacağın işlem put işlemi id yoksa yapacağın işlem post işlemi diye belirtmiş olduk.
     } else {
-      postStockData("brands", info);
+      postStockData("firms", info);
     }
 
     // setInfo({
@@ -88,6 +88,26 @@ export default function BrandsModal({ open, handleClose, info, setInfo }) {
               required
             />
             <TextField
+              label="Address"
+              name="address"
+              id="address"
+              type="text"
+              variant="outlined"
+              value={info.address}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              label="Phone"
+              name="phone"
+              id="phone"
+              type="tel"
+              variant="outlined"
+              value={info.phone}
+              onChange={handleChange}
+              required
+            />
+            <TextField
               label="Image"
               name="image"
               id="image"
@@ -98,7 +118,7 @@ export default function BrandsModal({ open, handleClose, info, setInfo }) {
               required
             />
             <Button variant="contained" type="submit">
-              {info.id ? "Update Brand" : "Submit Brand"}
+              {info.id ? "Update Firm" : "Submit Firm"}
             </Button>
           </Box>
         </Box>

@@ -7,14 +7,14 @@ import Typography from "@mui/material/Typography";
 import { Button, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import BrandCard from "../components/BrandCard";
-import BrandsModal from "../components/BrandsModal";
+import BrandsModal from "../components/modals/BrandsModal";
 
 const Brands = () => {
   // const dispatch = useDispatch();
   // const { token } = useSelector(state => state.auth);
 
   const { getStockData } = useStockCall();
-  const { brands } = useSelector(state => state.stock);
+  const { brands } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -56,10 +56,15 @@ const Brands = () => {
           justifyContent: "center",
           alignItems: "center",
           gap: 2,
-        }}>
-        {brands?.map(brand => (
+        }}
+      >
+        {brands?.map((brand) => (
           <Grid item key={brand.id}>
-            <BrandCard brand={brand} handleOpen={handleOpen} setInfo={setInfo} />
+            <BrandCard
+              brand={brand}
+              handleOpen={handleOpen}
+              setInfo={setInfo}
+            />
           </Grid>
         ))}
       </Grid>
